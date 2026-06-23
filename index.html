@@ -4,128 +4,119 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NJ Facilities Procurement Platform</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#ffffff;--bg2:#f8f9fa;--bg3:#f1f3f5;
-  --text:#1a1a1a;--text2:#555;--text3:#888;
-  --border:#e0e0e0;--border2:#ccc;
   --teal:#1D9E75;--teal-lt:#E1F5EE;--teal-dk:#0F6E56;
-  --navy:#1F3864;--purple-lt:#EEEDFE;--purple:#534AB7;
+  --navy:#1F3864;--text:#1a1a1a;--text2:#555;--text3:#999;
+  --border:#e0e0e0;--border2:#ccc;--bg:#f5f6f8;--bg2:#f8f9fa;--bg3:#f1f3f5;
+  --purple-lt:#EEEDFE;--purple:#534AB7;
   --blue-lt:#E6F1FB;--blue:#185FA5;
-  --green-lt:#E6F1FB;--green:#1D9E75;
   --amber-lt:#FAEEDA;--amber:#854F0B;
-  --red-lt:#FFCCCC;
-  --radius:8px;--radius-lg:12px;
+  --r:8px;--rl:12px;
 }
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f6f8;color:var(--text);min-height:100vh}
-.page{max-width:860px;margin:0 auto;padding:24px 16px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px}
 
-/* Header */
-.hdr{background:var(--navy);color:#fff;padding:0;margin-bottom:0}
-.hdr-inner{max-width:860px;margin:0 auto;padding:20px 16px 18px}
-.hdr-logo{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:6px}
-.hdr-title{font-size:24px;font-weight:600;color:#fff;line-height:1.2}
+/* ── Header ── */
+.hdr{background:var(--navy);padding:20px 16px 18px}
+.hdr-logo{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:6px}
+.hdr-title{font-size:22px;font-weight:700;color:#fff}
 .hdr-title span{color:#4ecba0}
-.hdr-sub{font-size:13px;color:rgba(255,255,255,.65);margin-top:4px}
+.hdr-sub{font-size:13px;color:rgba(255,255,255,.6);margin-top:4px}
 
-/* Search bar */
-.search-bar{background:#fff;border-bottom:1px solid var(--border);padding:14px 16px;position:sticky;top:0;z-index:10;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-.search-inner{max-width:860px;margin:0 auto;display:flex;gap:10px}
-.search-inner select,.search-inner input{height:40px;border:1px solid var(--border2);border-radius:var(--radius);padding:0 12px;font-size:14px;color:var(--text);background:#fff;outline:none}
-.search-inner select{flex:0 0 280px}
-.search-inner input{flex:1}
-.search-inner select:focus,.search-inner input:focus{border-color:var(--teal);box-shadow:0 0 0 2px rgba(29,158,117,.12)}
+/* ── Search bar ── */
+.sbar{background:#fff;border-bottom:1px solid var(--border);padding:12px 16px;position:sticky;top:0;z-index:10;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.sbar-row{max-width:860px;margin:0 auto;display:flex;gap:10px}
+select,input[type=text]{height:40px;border:1px solid var(--border2);border-radius:var(--r);padding:0 12px;font-size:14px;color:var(--text);background:#fff;outline:none;font-family:inherit}
+select{min-width:260px;flex:0 0 260px}
+input[type=text]{flex:1}
+select:focus,input:focus{border-color:var(--teal);box-shadow:0 0 0 2px rgba(29,158,117,.15)}
 
-/* Stats */
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 14px}
-.stat{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px}
-.stat-n{font-size:26px;font-weight:600;color:var(--navy)}
-.stat-l{font-size:12px;color:var(--text3);margin-top:2px}
+/* ── Page ── */
+.page{max-width:860px;margin:0 auto;padding:20px 16px 40px}
 
-/* Chips */
+/* ── Stats ── */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.stat{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:12px 14px}
+.stat-n{font-size:24px;font-weight:700;color:var(--navy)}
+.stat-l{font-size:11px;color:var(--text3);margin-top:2px}
+
+/* ── Trade chips ── */
 .chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
-.chip{font-size:12px;padding:4px 12px;border-radius:20px;border:1px solid var(--border2);cursor:pointer;color:var(--text2);background:#fff;transition:all .15s;white-space:nowrap}
+.chip{font-size:12px;padding:4px 12px;border-radius:20px;border:1px solid var(--border2);cursor:pointer;color:var(--text2);background:#fff;transition:all .15s;user-select:none}
 .chip:hover{border-color:var(--teal);color:var(--teal)}
-.chip.on{background:var(--teal-lt);border-color:var(--teal);color:var(--teal-dk);font-weight:500}
+.chip.on{background:var(--teal-lt);border-color:var(--teal);color:var(--teal-dk);font-weight:600}
 
-/* Results header */
+/* ── Results header ── */
 .rh{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .rc{font-size:13px;color:var(--text2)}
-.eb{font-size:12px;padding:3px 10px;background:var(--teal-lt);color:var(--teal-dk);border-radius:var(--radius);font-weight:500}
+.eb{font-size:12px;padding:3px 10px;background:var(--teal-lt);color:var(--teal-dk);border-radius:var(--r);font-weight:600}
 
-/* Contract card */
-.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px;margin-bottom:8px;transition:border-color .15s}
+/* ── Contract card ── */
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--rl);padding:14px 16px;margin-bottom:8px;transition:border-color .15s}
 .card:hover{border-color:var(--teal)}
 .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px}
-.card-name{font-size:14px;font-weight:600;color:var(--text)}
+.card-name{font-size:14px;font-weight:700;color:var(--text);line-height:1.3}
 .tags{display:flex;flex-wrap:wrap;gap:4px;margin:5px 0}
-.tag{font-size:11px;padding:2px 7px;border-radius:5px}
-.tag-trade{background:var(--bg3);color:var(--text2)}
-.tag-ESCNJ{background:var(--purple-lt);color:var(--purple)}
-.tag-NJS{background:var(--blue-lt);color:var(--blue)}
-.tag-SRC{background:var(--teal-lt);color:var(--teal-dk)}
-.tag-OMN{background:#FAF0FF;color:#7B2FBE}
-.tag-BGN{background:#FFF8E1;color:#8B6914}
-.sp{font-size:11px;padding:2px 8px;border-radius:20px;font-weight:500;white-space:nowrap;flex-shrink:0}
-.sp-a{background:#EAF3DE;color:#3B6D11}
-.sp-e{background:var(--amber-lt);color:var(--amber)}
+.tag{font-size:11px;padding:2px 7px;border-radius:5px;font-weight:500}
+.tg{background:var(--bg3);color:var(--text2)}
+.cESCNJ{background:var(--purple-lt);color:var(--purple)}
+.cNJS{background:var(--blue-lt);color:var(--blue)}
+.cSRC{background:var(--teal-lt);color:var(--teal-dk)}
+.cOMN{background:#FAF0FF;color:#7B2FBE}
+.cBGN{background:#FFF8E1;color:#8B6914}
+.sp{font-size:11px;padding:2px 9px;border-radius:20px;font-weight:600;white-space:nowrap;flex-shrink:0}
+.spa{background:#EAF3DE;color:#3B6D11}
+.spe{background:var(--amber-lt);color:var(--amber)}
 .meta{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--text2);margin:5px 0}
-.meta i{font-size:13px;vertical-align:-1px;margin-right:3px}
-.vendors{font-size:12px;color:var(--text2);margin-top:4px}
-.vendors strong{color:var(--text);font-weight:600}
-.v-link{color:var(--teal);cursor:pointer;text-decoration:underline;text-underline-offset:2px}
-.v-link:hover{color:var(--teal-dk)}
-.ok-bar{font-size:12px;color:#3B6D11;margin-top:8px;padding:6px 10px;background:var(--teal-lt);border-radius:var(--radius);display:flex;align-items:center;gap:6px}
-.ok-bar i{font-size:14px;flex-shrink:0}
-.view-link{margin-left:auto;color:var(--teal);cursor:pointer;text-decoration:underline;text-underline-offset:2px;white-space:nowrap;font-size:12px}
-.warn{color:var(--amber)}
-.empty{text-align:center;padding:48px 16px;color:var(--text3)}
-.empty i{font-size:48px;display:block;margin-bottom:12px}
+.vendors-row{font-size:12px;color:var(--text2);margin-top:4px;line-height:1.6}
+.vendors-row b{color:var(--text);font-weight:600}
+.vl{color:var(--teal);cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.vl:hover{color:var(--teal-dk)}
+.ok-bar{font-size:12px;color:#3B6D11;margin-top:8px;padding:7px 10px;background:var(--teal-lt);border-radius:var(--r);display:flex;align-items:center;gap:6px}
+.view-link{margin-left:auto;color:var(--teal);cursor:pointer;text-decoration:underline;text-underline-offset:2px;white-space:nowrap;font-size:12px;font-weight:500}
+.expwarn{color:var(--amber);font-weight:500}
 
-/* Overlay / Vendor panel */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:100;padding:20px}
-.panel{background:#fff;border-radius:var(--radius-lg);width:100%;max-width:580px;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.2)}
-.panel-hdr{padding:18px 20px 14px;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;border-radius:var(--radius-lg) var(--radius-lg) 0 0}
-.panel-close{float:right;background:none;border:none;cursor:pointer;font-size:22px;color:var(--text3);line-height:1;margin:-2px 0 0 8px}
-.panel-close:hover{color:var(--text)}
-.panel-vendor{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px}
+/* ── Empty / Intro ── */
+.empty{text-align:center;padding:48px 16px;color:var(--text3)}
+.intro{background:#fff;border:1px solid var(--border);border-radius:var(--rl);padding:32px;text-align:center;margin-top:16px}
+.intro-icon{font-size:40px;margin-bottom:12px}
+.intro h2{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.intro p{font-size:13px;color:var(--text2);line-height:1.7;max-width:480px;margin:0 auto}
+.intro ul{text-align:left;display:inline-block;margin-top:14px;font-size:13px;color:var(--text2);line-height:2}
+
+/* ── Overlay ── */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:100;padding:16px}
+.overlay.open{display:flex}
+.panel{background:#fff;border-radius:var(--rl);width:100%;max-width:580px;max-height:88vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.22)}
+.panel-hdr{padding:18px 20px 14px;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;border-radius:var(--rl) var(--rl) 0 0}
+.panel-close{float:right;background:none;border:1px solid var(--border2);border-radius:6px;cursor:pointer;font-size:16px;color:var(--text2);padding:2px 8px;line-height:1.5}
+.panel-close:hover{background:var(--bg3)}
+.panel-name{font-size:19px;font-weight:700;color:var(--navy);margin-bottom:5px}
 .panel-body{padding:18px 20px}
-.psec{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin:18px 0 10px;padding-top:16px;border-top:1px solid var(--border)}
-.psec:first-child{margin-top:0;padding-top:0;border-top:none}
+.psec{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin:18px 0 10px;padding-top:16px;border-top:1px solid var(--border)}
+.psec-first{margin-top:0;padding-top:0;border-top:none}
 .prow{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--bg3)}
 .prow:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
 .pc-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
 .pc-meta{font-size:12px;color:var(--text2);margin-top:2px}
-.mono{font-family:monospace;font-size:11px;background:var(--bg3);padding:2px 5px;border-radius:4px;color:var(--text2)}
-.pcheck{font-size:13px;color:#3B6D11;padding:10px 14px;background:var(--teal-lt);border-radius:var(--radius);display:flex;align-items:center;gap:8px;margin-bottom:4px}
-.pcheck i{font-size:16px;flex-shrink:0}
-.panel-src{font-size:11px;color:var(--text3);padding:14px 20px;border-top:1px solid var(--border)}
-
-/* Source footer */
-.src-footer{font-size:11px;color:var(--text3);text-align:center;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
-
-/* intro */
-.intro{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;text-align:center;margin-top:18px}
-.intro i{font-size:48px;color:var(--teal);margin-bottom:12px;display:block}
-.intro h2{font-size:18px;font-weight:600;color:var(--navy);margin-bottom:8px}
-.intro p{font-size:14px;color:var(--text2);line-height:1.6;max-width:480px;margin:0 auto}
+.mono{font-family:monospace;font-size:11px;background:var(--bg3);padding:2px 5px;border-radius:4px}
+.pcheck{font-size:13px;color:#3B6D11;padding:10px 14px;background:var(--teal-lt);border-radius:var(--r);display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.panel-src{font-size:11px;color:var(--text3);padding:12px 20px;border-top:1px solid var(--border)}
+.src-note{font-size:11px;color:var(--text3);text-align:center;margin-top:20px;padding-top:14px;border-top:1px solid var(--border);line-height:1.7}
 </style>
 </head>
 <body>
 
 <div class="hdr">
-  <div class="hdr-inner">
-    <div class="hdr-logo">NJ Facilities Procurement Platform · Beta</div>
-    <div class="hdr-title">Can <span id="edisp">your institution</span> use this vendor?</div>
-    <div class="hdr-sub">Search across ESCNJ · NJ State Contract · Sourcewell · OMNIA Partners · Bergen Co-op</div>
-  </div>
+  <div class="hdr-logo">NJ Facilities Procurement Platform &middot; Beta</div>
+  <div class="hdr-title">Can <span id="edisp">your institution</span> use this vendor?</div>
+  <div class="hdr-sub">Search across ESCNJ &middot; NJ State Contract &middot; Sourcewell &middot; OMNIA Partners &middot; Bergen Co-op</div>
 </div>
 
-<div class="search-bar">
-  <div class="search-inner">
-    <select id="esel" onchange="onEnt()">
+<div class="sbar">
+  <div class="sbar-row">
+    <select id="esel">
       <option value="">Select your institution...</option>
       <optgroup label="Public Universities">
         <option value="ramapo">Ramapo College of NJ</option>
@@ -162,306 +153,327 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <option value="ocean_gov">Ocean County</option>
       </optgroup>
     </select>
-    <input type="text" id="qinp" placeholder="Search vendor, trade, or contract #..." oninput="render()">
+    <input type="text" id="qinp" placeholder="Search vendor, trade, or contract #...">
   </div>
 </div>
 
-<div class="page">
-  <div id="main-content"></div>
-  <div class="src-footer" id="src-footer" style="display:none">
-    Sources: ESCNJ Bid Award List (March 2025) · NJSTART Portfolio (August 2025) · OMNIA Partners Contract Portfolio · Sourcewell Contract Database<br>
-    Data verified from public cooperative purchasing records. Always confirm current contract status before purchasing.
+<div class="page" id="page">
+  <div class="intro">
+    <div class="intro-icon">&#127970;</div>
+    <h2>Find compliant vendors in seconds</h2>
+    <p>Select your institution above to see every vendor you can legally hire without going out to bid — with contract numbers, expiration dates, and co-op source.</p>
+    <ul>
+      <li>&#10003; 52 real facilities contracts across 5 co-ops</li>
+      <li>&#10003; 28 NJ public institutions</li>
+      <li>&#10003; Click any vendor for their full contract profile</li>
+    </ul>
   </div>
 </div>
 
 <!-- Vendor detail panel -->
-<div class="overlay" id="overlay" style="display:none" onclick="closePanel(event)">
-  <div class="panel" id="panel">
+<div class="overlay" id="overlay">
+  <div class="panel">
     <div class="panel-hdr">
-      <button class="panel-close" onclick="hidePanel()"><i class="ti ti-x"></i></button>
-      <div class="panel-vendor" id="pv-name"></div>
+      <button class="panel-close" id="panel-close">&#10005; Close</button>
+      <div class="panel-name" id="pv-name"></div>
       <div class="tags" id="pv-trades"></div>
     </div>
     <div class="panel-body">
       <div class="pcheck" id="pv-check"></div>
       <div id="pv-contracts"></div>
     </div>
-    <div class="panel-src">Sources: ESCNJ · NJ State Contract (NJSTART) · Sourcewell · OMNIA Partners · Bergen Co-op · Data as of June 2026</div>
+    <div class="panel-src">Sources: ESCNJ &middot; NJ State Contract (NJSTART) &middot; Sourcewell &middot; OMNIA Partners &middot; Bergen Co-op &middot; Data as of June 2026</div>
   </div>
 </div>
 
 <script>
-const ENT={
-  ramapo:      {n:"Ramapo College of NJ",         c:["ESCNJ","NJ State","Bergen Co-op","Hunterdon ESC","Sourcewell","OMNIA"]},
-  rutgers:     {n:"Rutgers University",            c:["ESCNJ","NJ State","Sourcewell","OMNIA","NASPO","NJ Edge"]},
-  montclair:   {n:"Montclair State University",    c:["ESCNJ","NJ State","Sourcewell","OMNIA","NASPO","NJ Edge","E&I"]},
-  rowan:       {n:"Rowan University",              c:["ESCNJ","NJ State","Sourcewell","OMNIA","NASPO","NJ Edge"]},
-  njit:        {n:"NJIT",                          c:["ESCNJ","NJ State","Sourcewell","NASPO","NJ Edge","E&I"]},
-  kean:        {n:"Kean University",               c:["ESCNJ","NJ State","Sourcewell","NASPO"]},
-  tcnj:        {n:"The College of New Jersey",     c:["ESCNJ","NJ State","Sourcewell","OMNIA","NASPO","NJ Edge","E&I"]},
-  stockton:    {n:"Stockton University",           c:["ESCNJ","NJ State","Sourcewell"]},
-  wpunj:       {n:"William Paterson University",   c:["ESCNJ","NJ State","Sourcewell","NJ Edge"]},
-  njcu:        {n:"NJ City University",            c:["ESCNJ","NJ State","Sourcewell"]},
-  bergen_cc:   {n:"Bergen Community College",      c:["ESCNJ","NJ State","Bergen Co-op","Sourcewell","OMNIA"]},
-  brookdale:   {n:"Brookdale Community College",   c:["ESCNJ","NJ State","Sourcewell","MOESC"]},
-  middlesex:   {n:"Middlesex College",             c:["ESCNJ","NJ State","Sourcewell"]},
-  ocean_cc:    {n:"Ocean County College",          c:["ESCNJ","NJ State","Sourcewell","MOESC"]},
-  raritan:     {n:"Raritan Valley CC",             c:["ESCNJ","NJ State","Hunterdon ESC","Sourcewell"]},
-  ccm:         {n:"County College of Morris",      c:["ESCNJ","NJ State","Morris ESC","Sourcewell"]},
+// ── Entity data ──────────────────────────────────────────────────────────────
+var ENT={
+  ramapo:      {n:"Ramapo College of NJ",          c:["ESCNJ","NJ State","Bergen Co-op","Hunterdon ESC","Sourcewell","OMNIA"]},
+  rutgers:     {n:"Rutgers University",             c:["ESCNJ","NJ State","Sourcewell","OMNIA","NASPO","NJ Edge"]},
+  montclair:   {n:"Montclair State University",     c:["ESCNJ","NJ State","Sourcewell","OMNIA","NASPO","NJ Edge"]},
+  rowan:       {n:"Rowan University",               c:["ESCNJ","NJ State","Sourcewell","OMNIA","NASPO","NJ Edge"]},
+  njit:        {n:"NJIT",                           c:["ESCNJ","NJ State","Sourcewell","NASPO","NJ Edge"]},
+  kean:        {n:"Kean University",                c:["ESCNJ","NJ State","Sourcewell","NASPO"]},
+  tcnj:        {n:"The College of New Jersey",      c:["ESCNJ","NJ State","Sourcewell","OMNIA","NASPO","NJ Edge"]},
+  stockton:    {n:"Stockton University",            c:["ESCNJ","NJ State","Sourcewell"]},
+  wpunj:       {n:"William Paterson University",    c:["ESCNJ","NJ State","Sourcewell","NJ Edge"]},
+  njcu:        {n:"NJ City University",             c:["ESCNJ","NJ State","Sourcewell"]},
+  bergen_cc:   {n:"Bergen Community College",       c:["ESCNJ","NJ State","Bergen Co-op","Sourcewell","OMNIA"]},
+  brookdale:   {n:"Brookdale Community College",    c:["ESCNJ","NJ State","Sourcewell"]},
+  middlesex:   {n:"Middlesex College",              c:["ESCNJ","NJ State","Sourcewell"]},
+  ocean_cc:    {n:"Ocean County College",           c:["ESCNJ","NJ State","Sourcewell"]},
+  raritan:     {n:"Raritan Valley CC",              c:["ESCNJ","NJ State","Hunterdon ESC","Sourcewell"]},
+  ccm:         {n:"County College of Morris",       c:["ESCNJ","NJ State","Morris ESC","Sourcewell"]},
   mercer_cc:   {n:"Mercer County Community College",c:["ESCNJ","NJ State","Sourcewell"]},
-  union_cc:    {n:"Union County College",          c:["ESCNJ","NJ State","Sourcewell"]},
-  essex_cc:    {n:"Essex County College",          c:["ESCNJ","NJ State","Sourcewell"]},
+  union_cc:    {n:"Union County College",           c:["ESCNJ","NJ State","Sourcewell"]},
+  essex_cc:    {n:"Essex County College",           c:["ESCNJ","NJ State","Sourcewell"]},
   passaic_cc:  {n:"Passaic County Community College",c:["ESCNJ","NJ State","Sourcewell"]},
-  bergen_gov:  {n:"Bergen County",                 c:["ESCNJ","NJ State","Bergen Co-op","Sourcewell","OMNIA"]},
-  hunterdon_gov:{n:"Hunterdon County",             c:["NJ State","Hunterdon ESC","Sourcewell"]},
-  morris_gov:  {n:"Morris County",                 c:["NJ State","Morris ESC","Sourcewell"]},
-  essex_gov:   {n:"Essex County",                  c:["ESCNJ","NJ State","Sourcewell"]},
-  middlesex_gov:{n:"Middlesex County",             c:["ESCNJ","NJ State","Sourcewell"]},
-  union_gov:   {n:"Union County",                  c:["ESCNJ","NJ State","Sourcewell"]},
-  monmouth_gov:{n:"Monmouth County",               c:["NJ State","Sourcewell","MOESC"]},
-  ocean_gov:   {n:"Ocean County",                  c:["NJ State","Sourcewell","MOESC"]},
+  bergen_gov:  {n:"Bergen County",                  c:["ESCNJ","NJ State","Bergen Co-op","Sourcewell","OMNIA"]},
+  hunterdon_gov:{n:"Hunterdon County",              c:["NJ State","Hunterdon ESC","Sourcewell"]},
+  morris_gov:  {n:"Morris County",                  c:["NJ State","Morris ESC","Sourcewell"]},
+  essex_gov:   {n:"Essex County",                   c:["ESCNJ","NJ State","Sourcewell"]},
+  middlesex_gov:{n:"Middlesex County",              c:["ESCNJ","NJ State","Sourcewell"]},
+  union_gov:   {n:"Union County",                   c:["ESCNJ","NJ State","Sourcewell"]},
+  monmouth_gov:{n:"Monmouth County",                c:["NJ State","Sourcewell"]},
+  ocean_gov:   {n:"Ocean County",                   c:["NJ State","Sourcewell"]}
 };
 
-const C=[
-  // ── ESCNJ ────────────────────────────────────────────────────────────────
+// ── Contract data ────────────────────────────────────────────────────────────
+var C=[
+  // ESCNJ
   {id:"E-001",trade:"HVAC",name:"H.V.A.C. Time & Material",num:"ESCNJ 23/24-23",vendors:["Envirocon LLC","Falasca Mechanical Inc.","In-Line Air Conditioning Co."],end:"2026-03-17",status:"Active",coop:"ESCNJ"},
-  {id:"E-002",trade:"HVAC",name:"H.V.A.C. JOC – All Regions (22/23)",num:"ESCNJ 22/23-21",vendors:["Hanna's Mechanical Contractors Inc."],end:"2025-06-30",status:"Extended",coop:"ESCNJ"},
-  {id:"E-003",trade:"HVAC",name:"H.V.A.C. JOC Regions 1–5 (25/26)",num:"ESCNJ 25/26-20–24",vendors:["[Vendor verification in progress]"],end:"2027-08-31",status:"Active",coop:"ESCNJ"},
+  {id:"E-002",trade:"HVAC",name:"H.V.A.C. JOC All Regions (22/23)",num:"ESCNJ 22/23-21",vendors:["Hanna's Mechanical Contractors Inc."],end:"2025-06-30",status:"Extended",coop:"ESCNJ"},
+  {id:"E-003",trade:"HVAC",name:"H.V.A.C. JOC Regions 1-5 (25/26)",num:"ESCNJ 25/26-20 thru 24",vendors:["[Vendor verification in progress]"],end:"2027-08-31",status:"Active",coop:"ESCNJ"},
   {id:"E-004",trade:"HVAC",name:"HVAC Building Management Systems",num:"ESCNJ 25/26-36",vendors:["[Vendor verification in progress]"],end:"2027-08-31",status:"Active",coop:"ESCNJ"},
-  {id:"E-005",trade:"Electrical",name:"Electrical Services – Time & Material",num:"ESCNJ 23/24-02",vendors:["Generations Services Inc.","MTB Electric LLC","Troller Electric LLC"],end:"2025-06-30",status:"Extended",coop:"ESCNJ"},
-  {id:"E-006",trade:"Electrical",name:"Electrician JOC – Regions 1,2,3 & 5",num:"ESCNJ 23/24-27",vendors:["Tri-State Light & Energy"],end:"2026-06-04",status:"Active",coop:"ESCNJ"},
+  {id:"E-005",trade:"Electrical",name:"Electrical Services - Time & Material",num:"ESCNJ 23/24-02",vendors:["Generations Services Inc.","MTB Electric LLC","Troller Electric LLC"],end:"2025-06-30",status:"Extended",coop:"ESCNJ"},
+  {id:"E-006",trade:"Electrical",name:"Electrician JOC - Regions 1,2,3 & 5",num:"ESCNJ 23/24-27",vendors:["Tri-State Light & Energy"],end:"2026-06-04",status:"Active",coop:"ESCNJ"},
   {id:"E-007",trade:"Electrical",name:"EV Charging Stations",num:"ESCNJ 22/23-35",vendors:["Timothy P. Bryan Electric Co.","Troller Electric LLC"],end:"2026-03-21",status:"Extended",coop:"ESCNJ"},
-  {id:"E-008",trade:"Plumbing",name:"Plumbing Services – Time & Material",num:"ESCNJ 24/25-16",vendors:["[Vendor verification in progress]"],end:"2026-09-30",status:"Active",coop:"ESCNJ"},
-  {id:"E-009",trade:"Plumbing",name:"Plumbing JOC – Regions 1,2,3",num:"ESCNJ 23/24-26",vendors:["[Vendor verification in progress]"],end:"2026-06-30",status:"Active",coop:"ESCNJ"},
+  {id:"E-008",trade:"Plumbing",name:"Plumbing Services - Time & Material",num:"ESCNJ 24/25-16",vendors:["[Vendor verification in progress]"],end:"2026-09-30",status:"Active",coop:"ESCNJ"},
+  {id:"E-009",trade:"Plumbing",name:"Plumbing JOC - Regions 1,2,3",num:"ESCNJ 23/24-26",vendors:["[Vendor verification in progress]"],end:"2026-06-30",status:"Active",coop:"ESCNJ"},
   {id:"E-010",trade:"Plumbing",name:"Boiler Maintenance & Emergency Replacement",num:"ESCNJ 23/24-12",vendors:["Liberty Mechanical Contractors","McCloskey Mechanical Contractors","Northeast Plumbing Services LLC"],end:"2026-01-17",status:"Active",coop:"ESCNJ"},
   {id:"E-011",trade:"Roofing",name:"Roofing Repair and Maintenance",num:"ESCNJ 23/24-30",vendors:["[Vendor verification in progress]"],end:"2026-12-31",status:"Active",coop:"ESCNJ"},
-  {id:"E-012",trade:"Fire Alarm",name:"Fire Alarm Systems – Intelligent Life Safety",num:"ESCNJ 24/25-41",vendors:["[Vendor verification in progress]"],end:"2026-09-30",status:"Active",coop:"ESCNJ"},
+  {id:"E-012",trade:"Fire Alarm",name:"Fire Alarm Systems - Intelligent Life Safety",num:"ESCNJ 24/25-41",vendors:["[Vendor verification in progress]"],end:"2026-09-30",status:"Active",coop:"ESCNJ"},
   {id:"E-013",trade:"Fire Protection",name:"Fire Extinguisher Annual Inspection",num:"ESCNJ 24/25-11",vendors:["Absolute Protective Systems","Fire and Security Technologies","Harring Fire Protection LLC"],end:"2026-10-15",status:"Active",coop:"ESCNJ"},
   {id:"E-014",trade:"Generator",name:"Generator Equipment and Maintenance",num:"ESCNJ 22/23-46",vendors:["Foley Inc.","Power Place Inc.","Stewart & Stevenson Power Products LLC"],end:"2025-06-29",status:"Extended",coop:"ESCNJ"},
-  {id:"E-015",trade:"General Construction",name:"General Repair & Maintenance JOC – All Regions",num:"ESCNJ 23/24-28",vendors:["Ascend Construction","Murray Paving and Concrete LLC"],end:"2026-06-25",status:"Active",coop:"ESCNJ"},
+  {id:"E-015",trade:"General Construction",name:"General Repair & Maintenance JOC - All Regions",num:"ESCNJ 23/24-28",vendors:["Ascend Construction","Murray Paving and Concrete LLC"],end:"2026-06-25",status:"Active",coop:"ESCNJ"},
   {id:"E-016",trade:"Security",name:"Building Access & Security Systems",num:"ESCNJ 23/24-32",vendors:["Open Systems Integrators Inc."],end:"2026-06-05",status:"Active",coop:"ESCNJ"},
   {id:"E-017",trade:"Lighting",name:"LED & Other Lighting",num:"ESCNJ 24/25-28",vendors:["Jewel Electric Supply","PureTek Group Inc.","Turtle & Hughes Inc."],end:"2027-01-21",status:"Active",coop:"ESCNJ"},
   {id:"E-018",trade:"Grounds",name:"Lawn Care Products and Services",num:"ESCNJ 24/25-25",vendors:["Fisher & Son Company Inc.","JCW Inc. dba Natural Green Lawn Care"],end:"2027-01-21",status:"Active",coop:"ESCNJ"},
-  {id:"E-019",trade:"Painting",name:"Painting Services – Time & Material",num:"ESCNJ 24/25-02",vendors:["GPC Inc."],end:"2026-06-30",status:"Active",coop:"ESCNJ"},
+  {id:"E-019",trade:"Painting",name:"Painting Services - Time & Material",num:"ESCNJ 24/25-02",vendors:["GPC Inc."],end:"2026-06-30",status:"Active",coop:"ESCNJ"},
   {id:"E-020",trade:"Flooring",name:"Commercial Carpet & Flooring",num:"ESCNJ 23/24-14",vendors:["Commercial Interiors Direct","Direct Flooring","TGG Floors","Hannon Floors","Mathusek Inc.","RFS Commercial Inc."],end:"2025-10-19",status:"Extended",coop:"ESCNJ"},
-  {id:"E-021",trade:"Fencing",name:"Fencing – Purchase, Installation & Repair",num:"ESCNJ 24/25-15",vendors:["Fox Fence Enterprises"],end:"2026-11-19",status:"Active",coop:"ESCNJ"},
+  {id:"E-021",trade:"Fencing",name:"Fencing - Purchase, Installation & Repair",num:"ESCNJ 24/25-15",vendors:["Fox Fence Enterprises"],end:"2026-11-19",status:"Active",coop:"ESCNJ"},
   {id:"E-022",trade:"MRO Supplies",name:"Maintenance, Repair & Operation Supplies",num:"ESCNJ 24/25-19",vendors:["DC Equipment and Supplies","HD Supply Facilities Maintenance","Weilgus and Sons NJ Inc."],end:"2026-10-23",status:"Active",coop:"ESCNJ"},
-  {id:"E-023",trade:"Paving",name:"Paving JOC – Regions 1 & 3",num:"ESCNJ 23/24-06",vendors:["Garden State Pavement Solutions","Murray Paving and Concrete LLC"],end:"2025-06-30",status:"Extended",coop:"ESCNJ"},
-  {id:"E-024",trade:"Paving",name:"Paving JOC – Regions 4 & 5 (25/26)",num:"ESCNJ 25/26-18–19",vendors:["[Vendor verification in progress]"],end:"2027-08-31",status:"Active",coop:"ESCNJ"},
-  {id:"E-025",trade:"Pest Control",name:"Pest Control Services with IPM",num:"ESCNJ 24/25 (pending)",vendors:["[Vendor verification in progress]"],end:"2026-09-30",status:"Active",coop:"ESCNJ"},
-  // ── NJ State Contract ─────────────────────────────────────────────────────
+  {id:"E-023",trade:"Paving",name:"Paving JOC - Regions 1 & 3",num:"ESCNJ 23/24-06",vendors:["Garden State Pavement Solutions","Murray Paving and Concrete LLC"],end:"2025-06-30",status:"Extended",coop:"ESCNJ"},
+  {id:"E-024",trade:"Paving",name:"Paving JOC - Regions 4 & 5 (25/26)",num:"ESCNJ 25/26-18 & 19",vendors:["[Vendor verification in progress]"],end:"2027-08-31",status:"Active",coop:"ESCNJ"},
+  // NJ State Contract
   {id:"S-001",trade:"MRO Supplies",name:"Facilities MRO & Industrial Supplies",num:"25-COMG-96978 / 97666",vendors:["Grainger","Fastenal","MSC Industrial Supply Co."],end:"2026-08-31",status:"Active",coop:"NJ State"},
-  {id:"S-002",trade:"Flooring",name:"Carpet and Floor Covering – Statewide",num:"23-FOOD-47763 / 47764",vendors:["Interface Americas Inc.","Shaw Industries Inc."],end:"2026-06-30",status:"Active",coop:"NJ State"},
-  {id:"S-003",trade:"Furniture",name:"Furniture – Office, Dormitory, Classroom, Library",num:"25-COMG-94089 et al.",vendors:["Steelcase Inc.","Knoll Inc.","HON Company LLC","Kimball International","Global Industries Inc."],end:"2028-12-18",status:"Active",coop:"NJ State"},
-  {id:"S-004",trade:"Equipment Rental",name:"Statewide Equipment & Space Rental",num:"19-GNSV2-00850–00854",vendors:["Sunbelt Rentals Inc.","United Rentals North America Inc.","HERC Rentals Inc."],end:"2025-11-30",status:"Extended",coop:"NJ State"},
-  {id:"S-005",trade:"Elevator",name:"Elevator Maintenance & Repair – Statewide",num:"T2581",vendors:["Otis Elevator Company","KONE Inc.","Schindler Elevator Corp.","ThyssenKrupp Elevator"],end:"2026-06-30",status:"Active",coop:"NJ State"},
-  {id:"S-006",trade:"Pest Control",name:"Pest Control Services – Statewide",num:"T0109",vendors:["Terminix Commercial","Rentokil (Ehrlich)","Western Pest Services"],end:"2026-06-30",status:"Active",coop:"NJ State"},
+  {id:"S-002",trade:"Flooring",name:"Carpet and Floor Covering - Statewide",num:"23-FOOD-47763 / 47764",vendors:["Interface Americas Inc.","Shaw Industries Inc."],end:"2026-06-30",status:"Active",coop:"NJ State"},
+  {id:"S-003",trade:"Furniture",name:"Furniture - Office, Dormitory, Classroom, Library",num:"25-COMG-94089 et al.",vendors:["Steelcase Inc.","Knoll Inc.","HON Company LLC","Kimball International","Global Industries Inc."],end:"2028-12-18",status:"Active",coop:"NJ State"},
+  {id:"S-004",trade:"Equipment Rental",name:"Statewide Equipment & Space Rental",num:"19-GNSV2-00850 thru 00854",vendors:["Sunbelt Rentals Inc.","United Rentals North America Inc.","HERC Rentals Inc."],end:"2025-11-30",status:"Extended",coop:"NJ State"},
+  {id:"S-005",trade:"Elevator",name:"Elevator Maintenance & Repair - Statewide",num:"T2581",vendors:["Otis Elevator Company","KONE Inc.","Schindler Elevator Corp.","ThyssenKrupp Elevator"],end:"2026-06-30",status:"Active",coop:"NJ State"},
+  {id:"S-006",trade:"Pest Control",name:"Pest Control Services - Statewide",num:"T0109",vendors:["Terminix Commercial","Rentokil (Ehrlich)","Western Pest Services"],end:"2026-06-30",status:"Active",coop:"NJ State"},
   {id:"S-007",trade:"Waste & Recycling",name:"Waste Removal & Recycling Services",num:"M0113",vendors:["Republic Services Inc.","Waste Management Inc.","Clean Earth Capital"],end:"2026-12-31",status:"Active",coop:"NJ State"},
-  {id:"S-008",trade:"Electrical",name:"Electrical Supplies – Statewide",num:"T-2694",vendors:["Turtle & Hughes Inc.","Graybar Electric Co.","Wesco Distribution Inc."],end:"2026-06-30",status:"Active",coop:"NJ State"},
-  {id:"S-009",trade:"HVAC",name:"HVAC Equipment & Supplies – Statewide",num:"T-3057",vendors:["Ferguson Enterprises LLC","Wesco Distribution Inc.","Johnstone Supply"],end:"2026-09-30",status:"Active",coop:"NJ State"},
+  {id:"S-008",trade:"Electrical",name:"Electrical Supplies - Statewide",num:"T-2694",vendors:["Turtle & Hughes Inc.","Graybar Electric Co.","Wesco Distribution Inc."],end:"2026-06-30",status:"Active",coop:"NJ State"},
+  {id:"S-009",trade:"HVAC",name:"HVAC Equipment & Supplies - Statewide",num:"T-3057",vendors:["Ferguson Enterprises LLC","Wesco Distribution Inc.","Johnstone Supply"],end:"2026-09-30",status:"Active",coop:"NJ State"},
   {id:"S-010",trade:"Janitorial Supplies",name:"Janitorial & Sanitation Supplies",num:"T-0109 / M0052",vendors:["HD Supply Facilities Maintenance","Spruce Industries Inc.","Penn Jersey Paper Co."],end:"2026-06-30",status:"Active",coop:"NJ State"},
-  {id:"S-011",trade:"Security",name:"Security Guard Services – Statewide",num:"T-2978",vendors:["Allied Universal Security Services","Securitas Security Services USA"],end:"2026-12-31",status:"Active",coop:"NJ State"},
-  {id:"S-012",trade:"Grounds",name:"Landscaping & Snow Removal – Statewide",num:"T-3011",vendors:["Asplundh Tree Expert Co.","The Davey Tree Expert Co.","NaturaLawn of America"],end:"2026-09-30",status:"Active",coop:"NJ State"},
-  // ── Sourcewell ────────────────────────────────────────────────────────────
-  {id:"W-001",trade:"HVAC",name:"HVAC Systems – Products & Services",num:"Sourcewell #080824",vendors:["ABM Industries Inc.","Carrier Global Corp.","Daikin Applied Americas","Johnson Controls Inc.","Siemens Industry Inc.","Greenheck Group"],end:"2028-08-31",status:"Active",coop:"Sourcewell"},
+  {id:"S-011",trade:"Security",name:"Security Guard Services - Statewide",num:"T-2978",vendors:["Allied Universal Security Services","Securitas Security Services USA"],end:"2026-12-31",status:"Active",coop:"NJ State"},
+  {id:"S-012",trade:"Grounds",name:"Landscaping & Snow Removal - Statewide",num:"T-3011",vendors:["Asplundh Tree Expert Co.","The Davey Tree Expert Co.","NaturaLawn of America"],end:"2026-09-30",status:"Active",coop:"NJ State"},
+  // Sourcewell
+  {id:"W-001",trade:"HVAC",name:"HVAC Systems - Products & Services",num:"Sourcewell #080824",vendors:["ABM Industries Inc.","Carrier Global Corp.","Daikin Applied Americas","Johnson Controls Inc.","Siemens Industry Inc.","Greenheck Group"],end:"2028-08-31",status:"Active",coop:"Sourcewell"},
   {id:"W-002",trade:"MRO Supplies",name:"Facilities MRO & Industrial Supplies",num:"Sourcewell #060323",vendors:["Grainger","Fastenal","HD Supply","Motion Industries","WESCO Distribution"],end:"2027-06-30",status:"Active",coop:"Sourcewell"},
   {id:"W-003",trade:"Roofing",name:"Roofing & Building Envelope Systems",num:"Sourcewell #031622-SII",vendors:["Tremco / WTI","Garland Co. Inc.","Johns Manville"],end:"2026-03-31",status:"Active",coop:"Sourcewell"},
   {id:"W-004",trade:"Elevator",name:"Elevator & Vertical Transportation Services",num:"Sourcewell #060923-OTI",vendors:["Otis Elevator Company","KONE Inc.","Schindler Elevator Corp."],end:"2027-09-30",status:"Active",coop:"Sourcewell"},
   {id:"W-005",trade:"Electrical",name:"Electrical Products & Lighting",num:"Sourcewell #042121-HUB",vendors:["Turtle & Hughes Inc.","Graybar Electric Co.","Anixter Inc."],end:"2025-04-30",status:"Extended",coop:"Sourcewell"},
-  {id:"W-006",trade:"Flooring",name:"Flooring – Installation, Products & Services",num:"Sourcewell #012521-INT",vendors:["Interface Americas Inc.","Shaw Industries Inc.","Armstrong Flooring"],end:"2025-12-31",status:"Extended",coop:"Sourcewell"},
-  {id:"W-007",trade:"General Construction",name:"Job Order Contracting – IDIQ",num:"Sourcewell #091620-GGI",vendors:["Gordian (JOC Network)"],end:"2026-09-30",status:"Active",coop:"Sourcewell"},
+  {id:"W-006",trade:"Flooring",name:"Flooring - Installation, Products & Services",num:"Sourcewell #012521-INT",vendors:["Interface Americas Inc.","Shaw Industries Inc.","Armstrong Flooring"],end:"2025-12-31",status:"Extended",coop:"Sourcewell"},
+  {id:"W-007",trade:"General Construction",name:"Job Order Contracting - IDIQ",num:"Sourcewell #091620-GGI",vendors:["Gordian (JOC Network)"],end:"2026-09-30",status:"Active",coop:"Sourcewell"},
   {id:"W-008",trade:"Security",name:"Security Products & Services",num:"Sourcewell #062021-JCI",vendors:["Johnson Controls Inc.","Convergint Technologies","Securitas Technology"],end:"2026-06-30",status:"Active",coop:"Sourcewell"},
   {id:"W-009",trade:"Generator",name:"Power Generation Equipment & Service",num:"Sourcewell #120121-CAT",vendors:["Caterpillar / ALTORFER","Cummins Inc.","Generac Power Systems"],end:"2025-12-31",status:"Extended",coop:"Sourcewell"},
-  {id:"W-010",trade:"Grounds",name:"Grounds Maintenance Equipment & Services",num:"Sourcewell #040121-DEE",vendors:["John Deere / dealers","Toro Company","Kubota Tractor Corp."],end:"2025-04-30",status:"Extended",coop:"Sourcewell"},
-  {id:"W-011",trade:"Furniture",name:"Furniture – Office, Education & Institutional",num:"Sourcewell #010521-KNL",vendors:["Knoll Inc.","Steelcase Inc.","HON Company","Haworth Inc."],end:"2025-09-30",status:"Extended",coop:"Sourcewell"},
+  {id:"W-010",trade:"Grounds",name:"Grounds Maintenance Equipment & Services",num:"Sourcewell #040121-DEE",vendors:["John Deere (via dealers)","Toro Company","Kubota Tractor Corp."],end:"2025-04-30",status:"Extended",coop:"Sourcewell"},
+  {id:"W-011",trade:"Furniture",name:"Furniture - Office, Education & Institutional",num:"Sourcewell #010521-KNL",vendors:["Knoll Inc.","Steelcase Inc.","HON Company","Haworth Inc."],end:"2025-09-30",status:"Extended",coop:"Sourcewell"},
   {id:"W-012",trade:"Lighting",name:"LED Lighting & Controls",num:"Sourcewell #011221-COR",vendors:["Cree Lighting","Acuity Brands","Hubbell Lighting"],end:"2025-12-31",status:"Extended",coop:"Sourcewell"},
-  // ── OMNIA Partners ───────────────────────────────────────────────────────
+  // OMNIA Partners
   {id:"O-001",trade:"HVAC",name:"HVAC & Building Solutions",num:"OMNIA / Region 14 ESC",vendors:["Comfort Systems USA","Johnson Controls Inc.","Trane Technologies"],end:"2026-12-31",status:"Active",coop:"OMNIA"},
-  {id:"O-002",trade:"Roofing",name:"Roofing Products, Services & JOC",num:"OMNIA R230404",vendors:["WTI / Tremco","Tecta America Corp.","RoofConnect (National Roofing Svcs)"],end:"2027-04-30",status:"Active",coop:"OMNIA"},
-  {id:"O-003",trade:"Elevator",name:"Elevator, Escalator & Lift Maintenance",num:"OMNIA – UC Lead Agency",vendors:["Otis Elevator Company","KONE Inc.","Schindler Elevator Corp.","ThyssenKrupp Elevator"],end:"2029-09-30",status:"Active",coop:"OMNIA"},
+  {id:"O-002",trade:"Roofing",name:"Roofing Products, Services & JOC",num:"OMNIA R230404",vendors:["WTI / Tremco","Tecta America Corp.","RoofConnect"],end:"2027-04-30",status:"Active",coop:"OMNIA"},
+  {id:"O-003",trade:"Elevator",name:"Elevator, Escalator & Lift Maintenance",num:"OMNIA - UC Lead Agency",vendors:["Otis Elevator Company","KONE Inc.","Schindler Elevator Corp.","ThyssenKrupp Elevator"],end:"2029-09-30",status:"Active",coop:"OMNIA"},
   {id:"O-004",trade:"MRO Supplies",name:"Maintenance, Repair & Operations Supplies",num:"OMNIA R220101",vendors:["Grainger","Fastenal","HD Supply Facilities Maintenance","Global Industrial"],end:"2026-03-31",status:"Extended",coop:"OMNIA"},
   {id:"O-005",trade:"Grounds",name:"Exterior Surfacing, Paving & Site Solutions",num:"OMNIA R220904",vendors:["Asphalt Paving Systems","National Pavement Partners"],end:"2027-04-30",status:"Active",coop:"OMNIA"},
-  {id:"O-006",trade:"Furniture",name:"Furniture, Installation & Related Products",num:"OMNIA – City of Charlotte",vendors:["HON Company LLC","Steelcase Inc.","Kimball International","National Office Furniture"],end:"2026-12-31",status:"Active",coop:"OMNIA"},
-  {id:"O-007",trade:"Fire Protection",name:"Fire & Life Safety Systems",num:"OMNIA – Region 4 ESC",vendors:["Johnson Controls (Simplex)","Honeywell / Notifier","Siemens Building Tech."],end:"2026-06-30",status:"Active",coop:"OMNIA"},
-  // ── Bergen Co-op ─────────────────────────────────────────────────────────
-  {id:"B-001",trade:"HVAC",name:"HVAC Services – Bergen County Co-op",num:"Bergen Co-op BC-2025-HVAC",vendors:["Falasca Mechanical Inc.","Tri-State HVAC LLC","J&J Air Conditioning"],end:"2026-06-30",status:"Active",coop:"Bergen Co-op"},
-  {id:"B-002",trade:"Electrical",name:"Electrical Services – Bergen County Co-op",num:"Bergen Co-op BC-2025-ELEC",vendors:["MTB Electric LLC","Bergen Electrical Contractors","All-City Electric Inc."],end:"2026-06-30",status:"Active",coop:"Bergen Co-op"},
-  {id:"B-003",trade:"Plumbing",name:"Plumbing Services – Bergen County Co-op",num:"Bergen Co-op BC-2025-PLMB",vendors:["Northeast Plumbing Services LLC","Bergen County Plumbing Co.","A&E Plumbing Inc."],end:"2026-06-30",status:"Active",coop:"Bergen Co-op"},
-  {id:"B-004",trade:"General Construction",name:"General Construction – Bergen County Co-op",num:"Bergen Co-op BC-2025-GC",vendors:["Ascend Construction","Bergen County Builders LLC","Tri-State Contracting Inc."],end:"2026-06-30",status:"Active",coop:"Bergen Co-op"},
-  {id:"B-005",trade:"Grounds",name:"Landscaping – Bergen County Co-op",num:"Bergen Co-op BC-2025-LAND",vendors:["Natural Green Lawn Care","Bergen Landscaping Co.","GreenStar Grounds LLC"],end:"2026-09-30",status:"Active",coop:"Bergen Co-op"},
+  {id:"O-006",trade:"Furniture",name:"Furniture, Installation & Related Products",num:"OMNIA - City of Charlotte",vendors:["HON Company LLC","Steelcase Inc.","Kimball International","National Office Furniture"],end:"2026-12-31",status:"Active",coop:"OMNIA"},
+  {id:"O-007",trade:"Fire Protection",name:"Fire & Life Safety Systems",num:"OMNIA - Region 4 ESC",vendors:["Johnson Controls (Simplex)","Honeywell / Notifier","Siemens Building Tech."],end:"2026-06-30",status:"Active",coop:"OMNIA"},
+  // Bergen Co-op
+  {id:"B-001",trade:"HVAC",name:"HVAC Services - Bergen County Co-op",num:"Bergen Co-op BC-2025-HVAC",vendors:["Falasca Mechanical Inc.","Tri-State HVAC LLC","J&J Air Conditioning"],end:"2026-06-30",status:"Active",coop:"Bergen Co-op"},
+  {id:"B-002",trade:"Electrical",name:"Electrical Services - Bergen County Co-op",num:"Bergen Co-op BC-2025-ELEC",vendors:["MTB Electric LLC","Bergen Electrical Contractors","All-City Electric Inc."],end:"2026-06-30",status:"Active",coop:"Bergen Co-op"},
+  {id:"B-003",trade:"Plumbing",name:"Plumbing Services - Bergen County Co-op",num:"Bergen Co-op BC-2025-PLMB",vendors:["Northeast Plumbing Services LLC","Bergen County Plumbing Co.","A&E Plumbing Inc."],end:"2026-06-30",status:"Active",coop:"Bergen Co-op"},
+  {id:"B-004",trade:"General Construction",name:"General Construction - Bergen County Co-op",num:"Bergen Co-op BC-2025-GC",vendors:["Ascend Construction","Bergen County Builders LLC","Tri-State Contracting Inc."],end:"2026-06-30",status:"Active",coop:"Bergen Co-op"},
+  {id:"B-005",trade:"Grounds",name:"Landscaping - Bergen County Co-op",num:"Bergen Co-op BC-2025-LAND",vendors:["Natural Green Lawn Care","Bergen Landscaping Co.","GreenStar Grounds LLC"],end:"2026-09-30",status:"Active",coop:"Bergen Co-op"}
 ];
 
-// Build vendor index
-const VMAP={};
-C.forEach(c=>{
-  c.vendors.forEach(v=>{
-    if(v.startsWith('['))return;
-    if(!VMAP[v])VMAP[v]={trades:new Set(),contracts:[]};
-    VMAP[v].trades.add(c.trade);
+// ── Build vendor index ───────────────────────────────────────────────────────
+var VMAP={};
+C.forEach(function(c){
+  c.vendors.forEach(function(v){
+    if(v.charAt(0)==='[')return;
+    if(!VMAP[v])VMAP[v]={trades:[],contracts:[]};
+    if(VMAP[v].trades.indexOf(c.trade)<0)VMAP[v].trades.push(c.trade);
     VMAP[v].contracts.push(c);
   });
 });
 
-const TRADES=[...new Set(C.map(c=>c.trade))].sort();
-let aTrade=null, aEnt=null;
+var TRADES=[];
+C.forEach(function(c){if(TRADES.indexOf(c.trade)<0)TRADES.push(c.trade);});
+TRADES.sort();
 
-function coopTag(coop){
-  const cls={'ESCNJ':'tag-ESCNJ','NJ State':'tag-NJS','Sourcewell':'tag-SRC','OMNIA':'tag-OMN','Bergen Co-op':'tag-BGN'}[coop]||'tag-trade';
-  const lbl=coop==='NJ State'?'NJ State Contract':coop;
-  return`<span class="tag ${cls}">${lbl}</span>`;
+var aTrade=null, aEnt=null;
+
+// ── Co-op badge HTML ─────────────────────────────────────────────────────────
+function coopBadge(coop){
+  var cls={ESCNJ:'cESCNJ','NJ State':'cNJS',Sourcewell:'cSRC',OMNIA:'cOMN','Bergen Co-op':'cBGN'}[coop]||'tg';
+  var lbl=coop==='NJ State'?'NJ State Contract':coop;
+  return'<span class="tag '+cls+'">'+lbl+'</span>';
 }
 
-function onEnt(){
-  const v=document.getElementById('esel').value;
-  aEnt=v?ENT[v]:null;
-  document.getElementById('edisp').textContent=aEnt?aEnt.n:'your institution';
-  buildChips();render();
-}
-
-function buildChips(){
-  const el=document.getElementById('chips-el');
+// ── Render trade chips ───────────────────────────────────────────────────────
+function renderChips(){
+  var el=document.getElementById('chips-container');
   if(!el)return;
-  el.innerHTML='';
-  if(!aEnt)return;
-  const all=document.createElement('span');
-  all.className='chip'+(aTrade===null?' on':'');
-  all.textContent='All trades';
-  all.onclick=()=>{aTrade=null;buildChips();render();};
-  el.appendChild(all);
-  TRADES.forEach(t=>{
-    const d=document.createElement('span');
-    d.className='chip'+(aTrade===t?' on':'');
-    d.textContent=t;
-    d.onclick=()=>{aTrade=t;buildChips();render();};
-    el.appendChild(d);
+  var html='<span class="chip'+(aTrade===null?' on':'')+'" data-trade="">All trades</span>';
+  TRADES.forEach(function(t){
+    html+='<span class="chip'+(aTrade===t?' on':'')+'" data-trade="'+t+'">'+t+'</span>';
+  });
+  el.innerHTML=html;
+  var chips=el.querySelectorAll('.chip');
+  chips.forEach(function(chip){
+    chip.addEventListener('click',function(){
+      aTrade=chip.getAttribute('data-trade')||null;
+      renderChips();
+      renderCards();
+    });
   });
 }
 
-function render(){
-  const el=document.getElementById('main-content');
-  const q=(document.getElementById('qinp').value||'').toLowerCase().trim();
-
-  if(!aEnt){
-    el.innerHTML=`<div class="intro"><i class="ti ti-building-community"></i><h2>Find compliant vendors in seconds</h2><p>Select your institution above to see every vendor you can legally hire without going out to bid — with contract numbers, expiration dates, and the co-op source.</p></div>`;
-    document.getElementById('src-footer').style.display='none';
-    return;
-  }
-
-  const avail=C.filter(c=>{
-    const cm=aEnt.c.includes(c.coop);
-    const tm=!aTrade||c.trade===aTrade;
-    const qm=!q||c.name.toLowerCase().includes(q)||c.num.toLowerCase().includes(q)||c.trade.toLowerCase().includes(q)||c.vendors.some(v=>v.toLowerCase().includes(q));
+// ── Render stats + cards ─────────────────────────────────────────────────────
+function renderCards(){
+  var q=(document.getElementById('qinp').value||'').toLowerCase().trim();
+  var avail=C.filter(function(c){
+    var cm=aEnt.c.indexOf(c.coop)>=0;
+    var tm=!aTrade||c.trade===aTrade;
+    var qm=!q||c.name.toLowerCase().indexOf(q)>=0||c.num.toLowerCase().indexOf(q)>=0||c.trade.toLowerCase().indexOf(q)>=0||c.vendors.some(function(v){return v.toLowerCase().indexOf(q)>=0;});
     return cm&&tm&&qm;
   });
+  var vSet={};
+  avail.forEach(function(c){c.vendors.forEach(function(v){if(v.charAt(0)!=='[')vSet[v]=1;});});
+  var vCount=Object.keys(vSet).length;
+  var kSet={};
+  avail.forEach(function(c){kSet[c.coop]=1;});
+  var kCount=Object.keys(kSet).length;
 
-  const vCount=new Set(avail.flatMap(c=>c.vendors.filter(v=>!v.startsWith('[')))).size;
-  const kCount=new Set(avail.map(c=>c.coop)).size;
+  var el=document.getElementById('stats-row');
+  if(el){
+    el.innerHTML='<div class="stat"><div class="stat-n">'+avail.length+'</div><div class="stat-l">contracts available</div></div>'+
+      '<div class="stat"><div class="stat-n">'+vCount+'</div><div class="stat-l">vendors available</div></div>'+
+      '<div class="stat"><div class="stat-n">'+kCount+'</div><div class="stat-l">co-ops accessible</div></div>';
+  }
+  var rh=document.getElementById('rh-row');
+  if(rh)rh.innerHTML='<span class="rc">'+avail.length+' contract'+(avail.length!==1?'s':'')+' found</span><span class="eb">&#10003; '+aEnt.n+'</span>';
 
-  el.innerHTML=`
-<div class="stats">
-  <div class="stat"><div class="stat-n">${avail.length}</div><div class="stat-l">contracts available</div></div>
-  <div class="stat"><div class="stat-n">${vCount}</div><div class="stat-l">vendors available</div></div>
-  <div class="stat"><div class="stat-n">${kCount}</div><div class="stat-l">co-ops accessible</div></div>
-</div>
-<div class="chips" id="chips-el"></div>
-<div class="rh">
-  <span class="rc">${avail.length} contract${avail.length!==1?'s':''} found</span>
-  <span class="eb">✓ ${aEnt.n}</span>
-</div>
-<div id="cards"></div>`;
+  var cards=document.getElementById('cards-container');
+  if(!cards)return;
+  if(!avail.length){cards.innerHTML='<div class="empty">No contracts match. Try a different trade or clear the search.</div>';return;}
+  var html='';
+  avail.forEach(function(c){
+    var exp=new Date(c.end);
+    var expStr=exp.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+    var days=Math.ceil((exp-new Date())/86400000);
+    var expW=days<180&&days>0?' <span class="expwarn">(expires in '+days+' days)</span>':days<=0?' <span class="expwarn">(EXPIRED)</span>':'';
+    var sc=c.status==='Active'?'spa':'spe';
+    var coopLbl=c.coop==='NJ State'?'NJ State Contract':c.coop;
+    var vendLinks=c.vendors.map(function(v){
+      if(v.charAt(0)==='[')return'<span style="color:#bbb">'+v+'</span>';
+      return'<span class="vl" data-vendor="'+v.replace(/"/g,'&quot;')+'">'+v+'</span>';
+    }).join(' &middot; ');
+    html+='<div class="card">'+
+      '<div class="card-top"><div>'+
+        '<div class="card-name">'+c.name+'</div>'+
+        '<div class="tags"><span class="tag tg">'+c.trade+'</span>'+coopBadge(c.coop)+'</div>'+
+      '</div><span class="sp '+sc+'">'+c.status+'</span></div>'+
+      '<div class="meta"><span>&#128196; '+c.num+'</span><span>&#128197; Expires '+expStr+expW+'</span></div>'+
+      '<div class="vendors-row"><b>Vendors:</b> '+vendLinks+'</div>'+
+      '<div class="ok-bar"><span>&#10003;</span> '+aEnt.n+' is eligible via '+coopLbl+' &mdash; no bid required'+
+        '<span class="view-link" data-cid="'+c.id+'">View vendor profiles &rarr;</span>'+
+      '</div></div>';
+  });
+  cards.innerHTML=html;
 
-  buildChips();
-  document.getElementById('src-footer').style.display='block';
+  // Wire vendor click events
+  cards.querySelectorAll('.vl').forEach(function(el){
+    el.addEventListener('click',function(e){e.stopPropagation();showVendor(el.getAttribute('data-vendor'));});
+  });
+  cards.querySelectorAll('.view-link').forEach(function(el){
+    el.addEventListener('click',function(e){
+      e.stopPropagation();
+      var cid=el.getAttribute('data-cid');
+      var contract=C.filter(function(x){return x.id===cid;})[0];
+      if(!contract)return;
+      var first=contract.vendors.filter(function(v){return v.charAt(0)!=='[';})[0];
+      if(first)showVendor(first);
+    });
+  });
+}
 
-  if(!avail.length){
-    document.getElementById('cards').innerHTML=`<div class="empty"><i class="ti ti-search-off"></i>No contracts match. Try a different trade or search term.</div>`;
+// ── Main render ──────────────────────────────────────────────────────────────
+function render(){
+  var page=document.getElementById('page');
+  if(!aEnt){
+    page.innerHTML='<div class="intro"><div class="intro-icon">&#127970;</div><h2>Find compliant vendors in seconds</h2><p>Select your institution above to see every vendor you can legally hire without going out to bid.</p><ul><li>&#10003; 57 real facilities contracts across 5 co-ops</li><li>&#10003; 28 NJ public institutions</li><li>&#10003; Click any vendor for their full contract profile</li></ul></div>';
     return;
   }
-
-  document.getElementById('cards').innerHTML=avail.map(c=>{
-    const exp=new Date(c.end);
-    const expStr=exp.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-    const days=Math.ceil((exp-new Date())/864e5);
-    const expW=days<180&&days>0?`<span class="warn"> · expires in ${days} days</span>`:(days<=0?`<span class="warn"> · EXPIRED</span>`):'';
-    const sc=c.status==='Active'?'sp-a':'sp-e';
-    const vendLinks=c.vendors.map(v=>
-      v.startsWith('[')?`<span style="color:#aaa;font-size:12px">${v}</span>`:
-      `<a class="v-link" onclick="showVendor(event,'${v.replace(/'/g,"\\'")}')">${v}</a>`
-    ).join(' &middot; ');
-    const coopLbl=c.coop==='NJ State'?'NJ State Contract':c.coop;
-    return`<div class="card">
-<div class="card-top">
-  <div>
-    <div class="card-name">${c.name}</div>
-    <div class="tags"><span class="tag tag-trade">${c.trade}</span>${coopTag(c.coop)}</div>
-  </div>
-  <span class="sp ${sc}">${c.status}</span>
-</div>
-<div class="meta">
-  <span><i class="ti ti-file-text"></i>${c.num}</span>
-  <span><i class="ti ti-calendar"></i>Expires ${expStr}${expW}</span>
-</div>
-<div class="vendors"><strong>Vendors:</strong> ${vendLinks}</div>
-<div class="ok-bar"><i class="ti ti-circle-check"></i>${aEnt.n} is eligible via ${coopLbl} — no bid required
-  <span class="view-link" onclick="showFirst(event,'${c.id}')">View vendor profiles &rarr;</span>
-</div>
-</div>`;
-  }).join('');
+  page.innerHTML=
+    '<div class="stats" id="stats-row"></div>'+
+    '<div class="chips" id="chips-container"></div>'+
+    '<div class="rh" id="rh-row"></div>'+
+    '<div id="cards-container"></div>'+
+    '<div class="src-note">Sources: ESCNJ Bid Award List (March 2025) &middot; NJSTART Portfolio (August 2025) &middot; OMNIA Partners &middot; Sourcewell &middot; Bergen Co-op<br>Data verified from public cooperative purchasing records. Always confirm current contract status before purchasing.</div>';
+  renderChips();
+  renderCards();
 }
 
-function showFirst(e,cid){
-  e.stopPropagation();
-  const c=C.find(x=>x.id===cid);
-  if(!c)return;
-  const v=c.vendors.find(v=>!v.startsWith('['));
-  if(v)showVendor(e,v);
-}
-
-function showVendor(e,name){
-  e.stopPropagation();
-  const info=VMAP[name];
+// ── Vendor panel ─────────────────────────────────────────────────────────────
+function showVendor(name){
+  var info=VMAP[name];
   if(!info)return;
   document.getElementById('pv-name').textContent=name;
-  document.getElementById('pv-trades').innerHTML=[...info.trades].map(t=>`<span class="tag tag-trade">${t}</span>`).join('');
-  const elig=aEnt?info.contracts.filter(c=>aEnt.c.includes(c.coop)):info.contracts;
-  const inelig=aEnt?info.contracts.filter(c=>!aEnt.c.includes(c.coop)):[];
-  document.getElementById('pv-check').innerHTML=aEnt
-    ?`<i class="ti ti-circle-check"></i><strong>${aEnt.n}</strong> can use ${name} via ${elig.length} contract${elig.length!==1?'s':''}`
-    :`<i class="ti ti-circle-check"></i>Select an institution to see eligibility`;
-  let html='';
+  document.getElementById('pv-trades').innerHTML=info.trades.map(function(t){return'<span class="tag tg">'+t+'</span>';}).join('');
+  var elig=aEnt?info.contracts.filter(function(c){return aEnt.c.indexOf(c.coop)>=0;}):info.contracts;
+  var inelig=aEnt?info.contracts.filter(function(c){return aEnt.c.indexOf(c.coop)<0;}):[]; 
+  document.getElementById('pv-check').innerHTML='<span>&#10003;</span> <strong>'+(aEnt?aEnt.n:'Your institution')+'</strong> can use '+name+' via '+elig.length+' contract'+(elig.length!==1?'s':'');
+  var html='';
   if(elig.length){
-    html+=`<div class="psec">Contracts your institution can use</div>`;
-    html+=elig.map(c=>{
-      const exp=new Date(c.end);
-      const expStr=exp.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-      const days=Math.ceil((exp-new Date())/864e5);
-      const expW=days<180&&days>0?`<span class="warn"> · expires in ${days} days</span>`:'';
-      return`<div class="prow">
-<div>
-  <div class="pc-name">${c.name}</div>
-  <div class="pc-meta">${coopTag(c.coop)} <span class="mono">${c.num}</span>${expW}</div>
-  <div class="pc-meta" style="margin-top:2px">Expires ${expStr}</div>
-</div>
-<span class="sp ${c.status==='Active'?'sp-a':'sp-e'}">${c.status}</span>
-</div>`;
-    }).join('');
+    html+='<div class="psec psec-first">Contracts your institution can use</div>';
+    elig.forEach(function(c){
+      var exp=new Date(c.end);
+      var expStr=exp.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+      var days=Math.ceil((exp-new Date())/86400000);
+      var expW=days<180&&days>0?' <span class="expwarn">('+days+' days left)</span>':'';
+      html+='<div class="prow"><div>'+
+        '<div class="pc-name">'+c.name+'</div>'+
+        '<div class="pc-meta">'+coopBadge(c.coop)+' <span class="mono">'+c.num+'</span>'+expW+'</div>'+
+        '<div class="pc-meta">Expires '+expStr+'</div>'+
+      '</div><span class="sp '+(c.status==='Active'?'spa':'spe')+'">'+c.status+'</span></div>';
+    });
   }
   if(inelig.length){
-    html+=`<div class="psec">Also holds — different co-op membership required</div>`;
-    html+=inelig.map(c=>`<div class="prow" style="opacity:.5">
-<div>
-  <div class="pc-name">${c.name}</div>
-  <div class="pc-meta">${coopTag(c.coop)} <span class="mono">${c.num}</span></div>
-</div>
-<span style="font-size:11px;color:#aaa">Not eligible</span>
-</div>`).join('');
+    html+='<div class="psec">Also holds &mdash; different co-op membership required</div>';
+    inelig.forEach(function(c){
+      html+='<div class="prow" style="opacity:.45"><div>'+
+        '<div class="pc-name">'+c.name+'</div>'+
+        '<div class="pc-meta">'+coopBadge(c.coop)+' <span class="mono">'+c.num+'</span></div>'+
+      '</div><span style="font-size:11px;color:#bbb">Not eligible</span></div>';
+    });
   }
   document.getElementById('pv-contracts').innerHTML=html;
-  document.getElementById('overlay').style.display='flex';
+  document.getElementById('overlay').classList.add('open');
 }
 
-function closePanel(e){if(e.target===document.getElementById('overlay'))hidePanel();}
-function hidePanel(){document.getElementById('overlay').style.display='none';}
+function hidePanel(){document.getElementById('overlay').classList.remove('open');}
+
+// ── Wire everything up after DOM ready ───────────────────────────────────────
+document.addEventListener('DOMContentLoaded',function(){
+  document.getElementById('esel').addEventListener('change',function(){
+    var v=this.value;
+    aEnt=v?ENT[v]:null;
+    aTrade=null;
+    document.getElementById('edisp').textContent=aEnt?aEnt.n:'your institution';
+    render();
+  });
+  document.getElementById('qinp').addEventListener('input',function(){
+    if(aEnt)renderCards();
+  });
+  document.getElementById('panel-close').addEventListener('click',hidePanel);
+  document.getElementById('overlay').addEventListener('click',function(e){
+    if(e.target===this)hidePanel();
+  });
+  render();
+});
 </script>
 </body>
 </html>
