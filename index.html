@@ -41,6 +41,8 @@ select:focus,input:focus{border-color:var(--teal);box-shadow:0 0 0 2px rgba(29,1
 .chip.on.cOMN{background:#FAF0FF;border-color:#9B59B6;color:#7B2FBE}
 .chip.on.cBGN{background:#FFF8E1;border-color:#C8A600;color:#8B6914}
 .chip.on.cHCE{background:#FFF0E6;border-color:#D4600A;color:#A0440A}
+.chip.on.cNASPO{background:#F0FFF4;border-color:#276749;color:#1C4D35}
+.chip.on.cNJE{background:#FFF5F5;border-color:#C53030;color:#922B21}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
 .stat{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:11px 14px}
 .stat-n{font-size:24px;font-weight:700;color:var(--navy)}
@@ -61,6 +63,8 @@ select:focus,input:focus{border-color:var(--teal);box-shadow:0 0 0 2px rgba(29,1
 .cOMN{background:#FAF0FF;color:#7B2FBE}
 .cBGN{background:#FFF8E1;color:#8B6914}
 .cHCE{background:#FFF0E6;color:#A0440A}
+.cNASPO{background:#F0FFF4;color:#1C4D35}
+.cNJE{background:#FFF5F5;color:#922B21}
 .sp{font-size:11px;padding:2px 9px;border-radius:20px;font-weight:600;white-space:nowrap;flex-shrink:0}
 .spa{background:var(--green-lt);color:var(--green)}
 .spe{background:var(--amber-lt);color:var(--amber)}
@@ -108,7 +112,7 @@ select:focus,input:focus{border-color:var(--teal);box-shadow:0 0 0 2px rgba(29,1
 <div class="hdr">
   <div class="hdr-logo">NJ Facilities Procurement Platform &middot; Beta</div>
   <div class="hdr-title">Can <span id="edisp">your institution</span> use this vendor?</div>
-  <div class="hdr-sub">ESCNJ &middot; NJ State Contract &middot; Sourcewell &middot; OMNIA Partners &middot; Bergen Co-op &middot; Hunterdon ESC</div>
+  <div class="hdr-sub">ESCNJ &middot; NJ State &middot; Sourcewell &middot; OMNIA &middot; Bergen Co-op &middot; Hunterdon ESC &middot; NASPO ValuePoint &middot; NJ Edge</div>
 </div>
 <div class="sbar">
   <div class="sbar-row">
@@ -178,7 +182,7 @@ select:focus,input:focus{border-color:var(--teal);box-shadow:0 0 0 2px rgba(29,1
       <div class="contact-bar" id="pv-contact"></div>
       <div id="pv-contracts"></div>
     </div>
-    <div class="panel-src">Sources: ESCNJ &middot; NJ State Contract &middot; Sourcewell &middot; OMNIA Partners &middot; Bergen Co-op &middot; Hunterdon ESC &middot; Verified June 2026</div>
+    <div class="panel-src">Sources: ESCNJ &middot; NJ State &middot; Sourcewell &middot; OMNIA &middot; Bergen Co-op &middot; Hunterdon ESC &middot; NASPO ValuePoint &middot; NJ Edge &middot; Verified June 2026</div>
   </div>
 </div>
 <script>
@@ -563,7 +567,33 @@ var C=[
   {id:"H-008",trade:"Roofing",name:"Roofing Services — Repair & Maintenance",num:"HCESC-SER-23-ROF",
    vendors:["[Contact HCESC for vendor list: (908) 439-4280]"],
    end:"2026-11-03",status:"Extended",coop:"Hunterdon ESC",
-   note:"Roofing services — extended through 2026"}
+   note:"Roofing services — extended through 2026"},
+  // ── NASPO ValuePoint ───────────────────────────────────────────────────────
+  {id:"N-001",trade:"MRO Supplies",name:"Facilities MRO & Industrial Supplies",num:"NASPO MA 758 2500000412",
+   vendors:["Grainger","HD Supply Facilities Maintenance","MSC Industrial Supply Co.","Global Industrial","Lawson Products Inc."],
+   end:"2026-08-31",status:"Active",coop:"NASPO",
+   note:"Lead State: Kentucky. Effective Sep 1 2024. 15 categories incl. HVAC, Electrical, Plumbing, Janitorial, Safety. NJ Participating Addendum required."},
+  {id:"N-002",trade:"Grounds",name:"Grounds Maintenance Equipment",num:"NASPO Virginia Lead — 2024-2029",
+   vendors:["John Deere (via dealers)","Toro Company","Kubota Tractor Corp.","Husqvarna","Exmark"],
+   end:"2029-10-31",status:"Active",coop:"NASPO",
+   note:"Lead State: Virginia. Effective Nov 1 2024. Commercial mowers, tractors, grounds equipment. 9 awarded suppliers."},
+  {id:"N-003",trade:"Electrical",name:"EV Charging Station Infrastructure",num:"NASPO Maryland Lead — EVCS",
+   vendors:["ChargePoint Inc.","Blink Charging Co.","Eaton Corporation","ABB Ltd."],
+   end:"2028-06-30",status:"Active",coop:"NASPO",
+   note:"Lead State: Maryland. 13 awarded suppliers for EV charging infrastructure on public campuses."},
+  {id:"N-004",trade:"Security",name:"Data Communications & Facility Monitoring",num:"NASPO AR3227",
+   vendors:["Cisco Systems Inc.","Johnson Controls Inc.","Motorola Solutions Inc."],
+   end:"2027-06-30",status:"Active",coop:"NASPO",
+   note:"Networking, unified communications, and facility monitoring/control. Widely used by NJ universities."},
+  // ── NJ Edge ───────────────────────────────────────────────────────────────
+  {id:"NJE-001",trade:"Security",name:"Technology Hardware & Campus Infrastructure",num:"NJEdge 269EMCPS-21-001-EM-SHI",
+   vendors:["SHI International Corp."],
+   end:"2028-02-27",status:"Active",coop:"NJ Edge",
+   note:"SHI through NJEdge (ID# 269EMCPS). IT hardware, building automation tech, campus infrastructure. Confirmed: Ocean County College, NJIT, Rowan, Montclair."},
+  {id:"NJE-002",trade:"Lighting",name:"Building Technology & Smart Controls",num:"NJEdge 269EMCPS-BLDG",
+   vendors:["Cisco Systems Inc.","Siemens Industry Inc.","Honeywell International"],
+   end:"2027-06-30",status:"Active",coop:"NJ Edge",
+   note:"Building automation, smart lighting controls, and energy management systems through NJEdge cooperative."}
 ];
 
 // Build vendor index
@@ -580,8 +610,8 @@ C.forEach(function(c){
 var TRADES=[];
 C.forEach(function(c){if(TRADES.indexOf(c.trade)<0)TRADES.push(c.trade);});
 TRADES.sort();
-var COOPS=["ESCNJ","NJ State","Sourcewell","OMNIA","Bergen Co-op","Hunterdon ESC"];
-var COOP_CLS={"ESCNJ":"cESCNJ","NJ State":"cNJS","Sourcewell":"cSRC","OMNIA":"cOMN","Bergen Co-op":"cBGN","Hunterdon ESC":"cHCE"};
+var COOPS=["ESCNJ","NJ State","Sourcewell","OMNIA","Bergen Co-op","Hunterdon ESC","NASPO","NJ Edge"];
+var COOP_CLS={"ESCNJ":"cESCNJ","NJ State":"cNJS","Sourcewell":"cSRC","OMNIA":"cOMN","Bergen Co-op":"cBGN","Hunterdon ESC":"cHCE","NASPO":"cNASPO","NJ Edge":"cNJE"};
 
 var aTrade=null, aCoop=null, aEnt=null;
 
@@ -695,7 +725,7 @@ function renderCards(){
 function render(){
   var page=document.getElementById('page');
   if(!aEnt){
-    page.innerHTML='<div class="intro"><div class="intro-icon">&#127970;</div><h2>Find compliant vendors in seconds</h2><p>Select your institution above to instantly see every vendor available through your cooperative purchasing memberships.</p><ul><li>&#10003; 63 real contracts across 6 co-ops</li><li>&#10003; 28 NJ institutions</li><li>&#10003; Filter by trade AND co-op</li><li>&#10003; Vendor phone, email &amp; website</li><li>&#10003; Free for all NJ public institutions</li></ul></div>';
+    page.innerHTML='<div class="intro"><div class="intro-icon">&#127970;</div><h2>Find compliant vendors in seconds</h2><p>Select your institution above to instantly see every vendor available through your cooperative purchasing memberships.</p><ul><li>&#10003; 69 real contracts across 8 co-ops</li><li>&#10003; 28 NJ institutions</li><li>&#10003; Filter by trade AND co-op</li><li>&#10003; Vendor phone, email &amp; website</li><li>&#10003; Free for all NJ public institutions</li></ul></div>';
     return;
   }
   page.innerHTML=
